@@ -42,10 +42,21 @@ it('shoud yield 0 if an empty array is provided', () => {
     expect(result).toBe(0);
 });
 
-it('should whrow error in case of no value', () => {
+it('should throw error in case of no value', () => {
     const resultFn = () => {
         add();
     };
     
-    expect(resultFn).toThrow();
+    expect(resultFn).toThrow(/is not iterable/);
+});
+
+it('should throw error in case of multiple values', () => {
+    const num1 = 1;
+    const num2 = 2;
+
+    const resultFn = () => {
+        add(num1, num2);
+    };
+    
+    expect(resultFn).toThrow(/is not iterable/);
 });
