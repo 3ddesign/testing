@@ -24,11 +24,12 @@ describe('transformToNumber', () => {
 
 describe('cleanNumbers()', () => {
     it('should return array of values (also integration test - include combination of functions)', () => {
-        const numberValues = ['1', '3']
+        const numberValues = ['1', '2']
    
         const cleanedNumbers = cleanNumbers(numberValues);
 
-        expect(cleanedNumbers[0]).toBeTypeOf('number');
+        // expect(cleanedNumbers[0]).toBeTypeOf('number');
+        expect(cleanedNumbers[0]).toEqual([1, 2]);
     });
 
     it('should throw an error if an array as at least one empty string', () => {
