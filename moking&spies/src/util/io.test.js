@@ -1,8 +1,16 @@
-import { it, expect } from 'vitest';
+import { it, expect, vi } from 'vitest';
+import { promices as fs } from 'fs';
 
-if('shoud exeucte the writeFile method', () => {
+import writeData from './io';
+
+vi.mock('fs');
+
+it('shoud exeucte the writeFile method', () => {
     const testData = 'Test';
     const testFileName = 'test.txt';
 
-    return expect(writeData(testData, testFileName)).resolves.toBeUndefined();
+    writeData(testData, testFileName)
+
+    // return expect(writeData(testData, testFileName)).resolves.toBeUndefined();
+    expect(fs.writeData).toBeCalled();
 });
